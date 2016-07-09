@@ -1,6 +1,6 @@
 install:
   - cinst pester
-  - cinst NugetPackageManager
+  - cinst Nuget
 
 build: false
 
