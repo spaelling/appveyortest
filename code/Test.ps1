@@ -21,5 +21,5 @@ function Get-Function
     )
 
     # Use Write-Host to fail PSScriptAnalyzer
-    Write-Out "Hello, Appveyor!"
+    Write-Host "Hello, Appveyor!"
 }
