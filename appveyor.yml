@@ -7,10 +7,6 @@ version: '1.0.{build}'
 
 build: false
 
-environment:
-  access_token:
-    secure: 1a1b81ef25d0ffa261f090c7f353ee9f7bfab583
-
 test_script:
   - ps: |
         $ErrorActionPreference = 'Stop'
