@@ -48,5 +48,5 @@ on_success:
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "spaelling@gmail.com"
   - git config --global user.name "Anders Spælling"
-  - git commit -q -u no -m "build success!"
+  - git commit -q -uno -m "build success!"
   - git push origin HEAD:master
