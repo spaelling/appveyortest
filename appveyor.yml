@@ -7,14 +7,12 @@ version: '1.0.{build}'
 
 build: false
 
-before_test:
- - ps: |
- if($env:APPVEYOR_REPO_BRANCH -eq "master")
- {
-   Write-Host "Did you commit to master branch you dummy?"
- }
- 
 test_script:
+ - ps: |
+       if($env:APPVEYOR_REPO_BRANCH -eq "master")
+       {
+         Write-Host "Did you commit to master branch you dummy?"
+       }
   - ps: |
         $ErrorActionPreference = 'Stop'
         
