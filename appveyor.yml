@@ -1,7 +1,7 @@
 install:
   - cinst pester
-  - ps: Install-PackageProvider -Name NuGet -Force -ErrorAction SilentlyContinue | Out-Null
-  - ps: Install-Module PsScriptAnalyzer -Force -ErrorAction SilentlyContinue | Out-Null
+  - ps: Install-PackageProvider -Name NuGet -Force -ErrorAction Stop | Out-Null
+  - ps: Install-Module PsScriptAnalyzer -Force -ErrorAction Stop | Out-Null
   
 version: '1.0.{build}'
 
@@ -45,5 +45,5 @@ on_success:
   - git config --global user.email "spaelling@gmail.com"
   - git config --global user.name "Anders Spælling"
   - git add TestsResults.xml
-  - git commit -a -q
+  - git commit -a -q -m "build success"
   - git push origin HEAD:master
