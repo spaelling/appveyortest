@@ -36,7 +36,7 @@ test_script:
           Update-AppveyorTest -Name 'PsScriptAnalyzer' -Outcome Passed
         }
   - ps: $res = Invoke-Pester -Path ".\Tests" -OutputFormat NUnitXml -OutputFile TestsResults.xml -PassThru
-  - ps: #(New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TestsResults.xml))
+  - ps: (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TestsResults.xml))
   - ps: if ($res.FailedCount -gt 0) { throw "$($res.FailedCount) tests failed."}
 
 on_success:
@@ -44,5 +44,6 @@ on_success:
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "spaelling@gmail.com"
   - git config --global user.name "Anders Spælling"
+  - git add TestsResults.xml
   - git commit -a -q
   - git push origin HEAD:master
