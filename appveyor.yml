@@ -7,6 +7,10 @@ version: '1.0.{build}'
 
 build: false
 
+branches:
+  except:
+    - master
+
 test_script:
   - ps: |
         $ErrorActionPreference = 'Stop'
