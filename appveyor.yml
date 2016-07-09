@@ -8,13 +8,10 @@ version: '1.0.{build}'
 build: false
 
 test_script:
- - ps: |
-       if($env:APPVEYOR_REPO_BRANCH -eq "master")
-       {
-         Write-Host "Did you commit to master branch you dummy?"
-       }
   - ps: |
         $ErrorActionPreference = 'Stop'
+        
+        if($env:APPVEYOR_REPO_BRANCH -eq "master"){Write-Host "Did you commit to master branch you dummy?"}
         
         Write-Host 'Adding PsScriptAnalyzer test'
         # PSScriptAnalyzer template derived from here:
