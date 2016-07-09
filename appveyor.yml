@@ -7,6 +7,10 @@ version: '1.0.{build}'
 
 build: false
 
+environment:
+  access_token:
+    secure: 1a1b81ef25d0ffa261f090c7f353ee9f7bfab583
+
 test_script:
   - ps: |
         $ErrorActionPreference = 'Stop'
@@ -38,3 +42,11 @@ test_script:
   - ps: $res = Invoke-Pester -Path ".\Tests" -OutputFormat NUnitXml -OutputFile TestsResults.xml -PassThru
   - ps: (New-Object 'System.Net.WebClient').UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TestsResults.xml))
   - ps: if ($res.FailedCount -gt 0) { throw "$($res.FailedCount) tests failed."}
+
+on_success:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email "spaelling@gmail.com"
+  - git config --global user.name "Anders Spælling"
+  - git commit ...
+  - git push ...

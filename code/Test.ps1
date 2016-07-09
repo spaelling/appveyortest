@@ -13,12 +13,12 @@
     blah
 
 #>
-function New-Function
+function Get-Function
 {
     param(
       [Parameter(Mandatory = $true)]
       [string]$Parameter1
     )
 
-    Write-Host
+    Write-Out "Hello, Appveyor!"
 }
