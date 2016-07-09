@@ -20,5 +20,6 @@ function Get-Function
       [string]$Parameter1
     )
 
+    # Use Write-Host to fail PSScriptAnalyzer
     Write-Out "Hello, Appveyor!"
 }
