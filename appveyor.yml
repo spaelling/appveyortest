@@ -9,7 +9,7 @@ build: false
 
 branches:
   except:
-    - master
+    - hej
 
 test_script:
   - ps: |
