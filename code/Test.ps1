@@ -21,7 +21,7 @@ function Get-Sum
     )
 
     # Use Write-Host to fail PSScriptAnalyzer
-    Write-Output "Hello, Appveyor!"
+    #Write-Output "Hello, Appveyor!"
 
     $S = 0
     $Numbers | ForEach-Object {$S += $_}
@@ -29,4 +29,4 @@ function Get-Sum
     $S
 }
 
-Add-Numbers -Numbers 1..3
+#Get-Sum -Numbers (1..3)

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2016-07-10" time="13:59:50">
+  <environment user="Anders" machine-name="MEGASPANDEN" cwd="C:\Github\repos\appveyortest" user-domain="MEGASPANDEN" platform="Microsoft Windows 10 Pro|C:\WINDOWS|\Device\Harddisk1\Partition2" nunit-version="2.5.8.0" os-version="10.0.10586" clr-version="4.0.30319.42000" />
+  <culture-info current-culture="da-DK" current-uiculture="en-US" />
+  <test-suite type="Powershell" name="Pester" executed="True" result="Failure" success="False" time="0.0609" asserts="0">
+    <results>
+      <test-suite type="TestFixture" name="When calling it should return the sum of the numbers" executed="True" result="Failure" success="False" time="0.0609" asserts="0" description="When calling it should return the sum of the numbers">
+        <results>
+          <test-case description="should return the sum of the list of integers" name="When calling it should return the sum of the numbers.should return the sum of the list of integers" time="0.0609" asserts="0" success="False" result="Failure" executed="True">
+            <failure>
+              <message>Expected: {6}
+But was:  {Hello, Appveyor!}</message>
+              <stack-trace>at line: 8 in C:\Github\repos\appveyortest\Tests\Test.Tests.ps1
+8:         Get-Sum -Numbers (1..3) | Should Be 6
+</stack-trace>
+            </failure>
+          </test-case>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

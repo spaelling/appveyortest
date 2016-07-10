@@ -1,9 +1,10 @@
+
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace(".Tests.", ".")
-. "$here\$sut"
+. "$here\..\code\$sut"
 
 Describe "When calling it should return the sum of the numbers" {
-    It "should return an integer" {
-        Get-Sum -Numbers 1..3 | Should Be 6
+    It "should return the sum of the list of integers" {
+        Get-Sum -Numbers (1..3) | Should Be 6
     }
 }
