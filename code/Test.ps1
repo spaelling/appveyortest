@@ -29,4 +29,4 @@ function Add-Numbers
     $S
 }
 
-#Add-Numbers -Numbers 1,2,3
+Add-Numbers -Numbers 1..3
