@@ -13,7 +13,7 @@
     blah
 
 #>
-function Add-Numbers
+function Get-Sum
 {
     param(
       [Parameter(Mandatory = $true)]
