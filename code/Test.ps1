@@ -6,20 +6,27 @@
     blah
 
 
-.PARAMETER Parameter1
+.PARAMETER NumbersArray
     blah
 
 .EXAMPLE
     blah
 
 #>
-function Get-Function
+function Add-Numbers
 {
     param(
       [Parameter(Mandatory = $true)]
-      [string]$Parameter1
+      [array]$Numbers
     )
 
     # Use Write-Host to fail PSScriptAnalyzer
-    Write-Host "Hello, Appveyor!"
+    Write-Output "Hello, Appveyor!"
+
+    $S = 0
+    $Numbers | ForEach-Object {$S += $_}
+
+    $S
 }
+
+#Add-Numbers -Numbers 1,2,3
